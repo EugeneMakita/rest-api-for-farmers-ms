@@ -23,13 +23,17 @@ class Farmer(models.Model):
     ]
     category = models.CharField(max_length=3, choices=CATEGORY_CHOICES, default='pending')
 
+class SeasonNames(models.Model):
+    id = models.UUIDField(default=uuid.uuid4, editable=False, unique=True, primary_key=True)
+    color_codes = models.CharField(max_length=8)
+    name = models.CharField(max_length=50, unique=True)
+
 class Season(models.Model):
     id = models.UUIDField(default=uuid.uuid4, editable=False, unique=True, primary_key=True)
     farmer = models.ForeignKey(Farmer, on_delete=models.CASCADE, related_name='seasons', null=True)
     growers_number = models.CharField(max_length=50, unique=True)
     total_land_grown = models.FloatField(default=0)
     year = models.PositiveIntegerField()
-    number_of_bales = models.PositiveIntegerField(default=0)
     start_date = models.DateField()
     end_date = models.DateField()
 
@@ -61,5 +65,5 @@ class Bale(models.Model):
     weight = models.FloatField()  # e.g., in kilograms
     price_per_kilogram = models.FloatField()  # e.g., in kilograms
     leaf_position = models.CharField(max_length=20, choices=LEAF_POSITION)
-    season = models.ForeignKey(Bale, on_delete=models.CASCADE, related_name='bales', null=True)
+    season = models.ForeignKey(Season, on_delete=models.CASCADE, related_name='bales', null=True)
     quality_of_bales = models.CharField(max_length=20, choices=QUALITY_OF_BALE)
