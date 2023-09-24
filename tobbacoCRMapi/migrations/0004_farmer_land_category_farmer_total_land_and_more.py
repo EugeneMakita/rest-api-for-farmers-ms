@@ -13,7 +13,8 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='farmer',
             name='land_category',
-            field=models.CharField(choices=[('a1', 'a1'), ('a2', 'a2')], default='a1', max_length=3),
+            field=models.CharField(
+                choices=[('a1', 'a1'), ('a2', 'a2')], default='a1', max_length=3),
         ),
         migrations.AddField(
             model_name='farmer',
@@ -28,6 +29,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='farmer',
             name='category',
-            field=models.CharField(choices=[('a1', 'a1'), ('a2', 'a2')], default='pending', max_length=3),
+            field=models.CharField(
+                choices=[('a1', 'a1'), ('a2', 'a2')], default='pending', max_length=3),
         ),
     ]

@@ -16,7 +16,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='SeasonNames',
             fields=[
-                ('id', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False, unique=True)),
+                ('id', models.UUIDField(default=uuid.uuid4, editable=False,
+                 primary_key=True, serialize=False, unique=True)),
                 ('color_codes', models.CharField(max_length=8)),
                 ('name', models.CharField(max_length=50, unique=True)),
             ],
@@ -24,12 +25,14 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='bale',
             name='season',
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, related_name='bales', to='tobbacoCRMapi.season'),
+            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE,
+                                    related_name='bales', to='tobbacoCRMapi.season'),
         ),
         migrations.AddField(
             model_name='season',
             name='farmer',
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, related_name='seasons', to='tobbacoCRMapi.farmer'),
+            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE,
+                                    related_name='seasons', to='tobbacoCRMapi.farmer'),
         ),
         migrations.AddField(
             model_name='season',

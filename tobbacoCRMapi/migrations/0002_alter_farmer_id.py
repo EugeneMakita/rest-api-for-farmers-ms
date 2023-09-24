@@ -15,6 +15,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='farmer',
             name='id',
-            field=models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False),
+            field=models.UUIDField(
+                default=uuid.uuid4, editable=False, primary_key=True, serialize=False),
         ),
     ]
