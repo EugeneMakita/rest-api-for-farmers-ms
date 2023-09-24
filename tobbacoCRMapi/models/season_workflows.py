@@ -4,7 +4,7 @@ from django.db import models
 from django.utils import timezone
 
 
-class SeasonNames(models.Model):
+class SeasonWorkflows(models.Model):
     id = models.UUIDField(default=uuid.uuid4, editable=False,
                           unique=True, primary_key=True)
     color_codes = models.CharField(max_length=8)

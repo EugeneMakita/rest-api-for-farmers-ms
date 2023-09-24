@@ -4,10 +4,10 @@ from django.db import models
 from django.utils import timezone
 
 
-class SeasonNames(models.Model):
+class Bales(models.Model):
     id = models.UUIDField(default=uuid.uuid4, editable=False,
                           unique=True, primary_key=True)
-    color_codes = models.CharField(max_length=8)
-    name = models.CharField(max_length=50, unique=True)
+    weight = models.FloatField()
+    price_per_kilogram = models.FloatField()
     created = models.DateTimeField(default=timezone.now)
     modified = models.DateTimeField(default=timezone.now)
