@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import SeasonNames
+from .models.season_names import SeasonNames
 
 class SeasonNamesSerializer(serializers.ModelSerializer):
     class Meta:
