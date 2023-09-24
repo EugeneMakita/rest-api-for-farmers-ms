@@ -67,7 +67,8 @@ class Bale(models.Model):
 
     id = models.UUIDField(default=uuid.uuid4, editable=False,
                           unique=True, primary_key=True)
-    # farmer_id = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
+    # farmer_id = models.UUIDField(default=uuid.uuid4, editable=False,
+    # unique=True)
     weight = models.FloatField()  # e.g., in kilograms
     price_per_kilogram = models.FloatField()  # e.g., in kilograms
     leaf_position = models.CharField(max_length=20, choices=LEAF_POSITION)

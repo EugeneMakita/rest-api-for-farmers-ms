@@ -10,10 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
-import environ
 from pathlib import Path
 
-#read all enviromental variables
+import environ
+
+# read all enviromental variables
 env = environ.Env()
 environ.Env.read_env()
 

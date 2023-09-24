@@ -1,0 +1,24 @@
+isort tobbacoCRMapi
+if [ $? -ne 0 ]; then
+    echo "isort failed!"
+    exit 1
+fi
+
+flake8 tobbacoCRMapi
+if [ $? -ne 0 ]; then
+    echo "flake8 failed!"
+    exit 1
+fi
+
+autopep8 tobbacoCRMapi/ --recursive --in-place
+if [ $? -ne 0 ]; then
+    echo "autopep8 failed!"
+    exit 1
+fi
+
+mypy tobbacoCRMapi
+if [ $? -ne 0 ]; then
+    echo "mypy failed!"
+    exit 1
+fi
+
