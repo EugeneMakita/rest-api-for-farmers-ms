@@ -1,6 +1,7 @@
 import uuid
 
 from django.db import models
+from django.utils import timezone
 
 
 class Farmer(models.Model):
@@ -31,3 +32,5 @@ class Farmer(models.Model):
     province_of_farm = models.TextField()
     city_of_farm = models.TextField()
     country_of_farm = models.TextField()
+    created = models.DateTimeField(default=timezone.now)
+    modified = models.DateTimeField(default=timezone.now)
