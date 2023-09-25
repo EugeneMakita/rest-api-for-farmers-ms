@@ -13,7 +13,7 @@ class SeasonWorkflowsDetail(BaseDetailView):
     get:
     Retrieve a specific workflow by id.
 
-    put:
+    patch:
     Update a specific workflow by id.
 
     delete:
@@ -41,5 +41,5 @@ class SeasonWorkflowList(BaseListView):
     serializer_class = SeasonWorkflowsSerializer
 
     @swagger_auto_schema(request_body=SeasonWorkflowsSerializer)
-    def post(self, request, pk: str) -> Response:
-        return super().post(request, pk)
+    def post(self, request) -> Response:
+        return super().post(request)

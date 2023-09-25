@@ -3,7 +3,7 @@ from rest_framework import serializers
 from ..models.files import Files
 
 
-class FilesSerializer(serializers.ModelSerializer):
+class ImagesSerializer(serializers.ModelSerializer):
     created = serializers.DateTimeField(read_only=True)
     modified = serializers.DateTimeField(read_only=True)
 

@@ -13,7 +13,7 @@ class ContactsDetail(BaseDetailView):
     get:
     Retrieve a specific contact by id.
 
-    put:
+    patch:
     Update a specific contact by id.
 
     delete:
@@ -41,5 +41,5 @@ class ContactsList(BaseListView):
     serializer_class = ContactSerializer
 
     @swagger_auto_schema(request_body=ContactSerializer)
-    def post(self, request, pk: str) -> Response:
-        return super().post(request, pk)
+    def post(self, request) -> Response:
+        return super().post(request)

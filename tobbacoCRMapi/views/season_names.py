@@ -13,7 +13,7 @@ class SeasonNamesDetail(BaseDetailView):
     get:
     Retrieve a specific name by id.
 
-    put:
+    patch:
     Update a specific name by id.
 
     delete:
@@ -41,5 +41,5 @@ class SeasonsNamesList(BaseListView):
     serializer_class = SeasonNamesSerializer
 
     @swagger_auto_schema(request_body=SeasonNamesSerializer)
-    def post(self, request, pk: str) -> Response:
-        return super().post(request, pk)
+    def post(self, request) -> Response:
+        return super().post(request)

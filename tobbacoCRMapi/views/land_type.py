@@ -13,7 +13,7 @@ class LandTypeDetail(BaseDetailView):
     get:
     Retrieve a specific land type by id.
 
-    put:
+    patch:
     Update a specific land type by id.
 
     delete:
@@ -41,5 +41,5 @@ class LandTypeList(BaseListView):
     serializer_class = LandTypeSerializer
 
     @swagger_auto_schema(request_body=LandTypeSerializer)
-    def post(self, request, pk: str) -> Response:
-        return super().post(request, pk)
+    def post(self, request) -> Response:
+        return super().post(request)

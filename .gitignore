@@ -2,3 +2,4 @@ tobbacoCRM/__pycache__/
 tobbacoCRMapi/__pycache__/
 *.pyc
 .env
+Media/

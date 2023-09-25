@@ -13,7 +13,7 @@ class FarmerDetail(BaseDetailView):
     get:
     Retrieve a specific farmer by id.
 
-    put:
+    patch:
     Update a specific farmer by id.
 
     delete:
@@ -41,5 +41,5 @@ class FarmerList(BaseListView):
     serializer_class = FarmerSerializer
 
     @swagger_auto_schema(request_body=FarmerSerializer)
-    def post(self, request, pk: str) -> Response:
-        return super().post(request, pk)
+    def post(self, request) -> Response:
+        return super().post(request)

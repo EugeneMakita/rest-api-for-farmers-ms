@@ -13,7 +13,7 @@ class ContractsStatusDetail(BaseDetailView):
     get:
     Retrieve a specific contact by id.
 
-    put:
+    patch:
     Update a specific contact by id.
 
     delete:
@@ -41,5 +41,5 @@ class ContactsStatusList(BaseListView):
     serializer_class = ContractsStatusSerializer
 
     @swagger_auto_schema(request_body=ContractsStatusSerializer)
-    def post(self, request, pk: str) -> Response:
-        return super().post(request, pk)
+    def post(self, request) -> Response:
+        return super().post(request)

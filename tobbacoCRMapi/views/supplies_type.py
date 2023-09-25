@@ -13,7 +13,7 @@ class SuppliesTypeDetail(BaseDetailView):
     get:
     Retrieve a specific supplies type by id.
 
-    put:
+    patch:
     Update a specific supplies type by id.
 
     delete:
@@ -41,5 +41,5 @@ class SuppliesTypeList(BaseListView):
     serializer_class = SuppliesTypeSerializer
 
     @swagger_auto_schema(request_body=SuppliesTypeSerializer)
-    def post(self, request, pk: str) -> Response:
-        return super().post(request, pk)
+    def post(self, request) -> Response:
+        return super().post(request)

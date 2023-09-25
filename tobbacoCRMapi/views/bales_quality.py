@@ -13,7 +13,7 @@ class BalesQualityDetail(BaseDetailView):
     get:
     Retrieve a specific Qaulity by id.
 
-    put:
+    patch:
     Update a specific Qaulity by id.
 
     delete:
@@ -41,5 +41,5 @@ class BalesQaulityList(BaseListView):
     serializer_class = BalesQaulitySerializer
 
     @swagger_auto_schema(request_body=BalesQaulitySerializer)
-    def post(self, request, pk: str) -> Response:
-        return super().post(request, pk)
+    def post(self, request) -> Response:
+        return super().post(request)

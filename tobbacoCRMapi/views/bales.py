@@ -13,7 +13,7 @@ class BalesDetail(BaseDetailView):
     get:
     Retrieve a specific bales by id.
 
-    put:
+    patch:
     Update a specific bales by id.
 
     delete:
@@ -41,5 +41,5 @@ class BalesList(BaseListView):
     serializer_class = BalesSerializer
 
     @swagger_auto_schema(request_body=BalesSerializer)
-    def post(self, request, pk: str) -> Response:
-        return super().post(request, pk)
+    def post(self, request) -> Response:
+        return super().post(request)
