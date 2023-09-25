@@ -1,8 +1,9 @@
+import logging
+
 from drf_yasg.utils import swagger_auto_schema
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
-import logging
 
 from ..helpers.image_processor import ImageProcessor
 from ..models.images import Images
@@ -11,6 +12,7 @@ from .base import BaseListView
 
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
+
 
 class ImageDetailView(APIView):
     """
@@ -57,7 +59,8 @@ class ImagesList(BaseListView):
             return Response({'errors': 'File is empty'}, status=status.HTTP_400_BAD_REQUEST)
 
         try:
-            serializer = ImagesSerializer(data=ImageProcessor.store_image(base64_data))
+            serializer = ImagesSerializer(
+                data=ImageProcessor.store_image(base64_data))
             if serializer.is_valid():
                 serializer.save()
                 return Response(serializer.data, status=status.HTTP_201_CREATED)

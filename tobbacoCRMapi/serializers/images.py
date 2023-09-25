@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from ..models.files import Files
+from ..models.images import Images
 
 
 class ImagesSerializer(serializers.ModelSerializer):
@@ -8,5 +8,5 @@ class ImagesSerializer(serializers.ModelSerializer):
     modified = serializers.DateTimeField(read_only=True)
 
     class Meta:
-        model = Files
+        model = Images
         fields = '__all__'

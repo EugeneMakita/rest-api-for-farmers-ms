@@ -35,7 +35,7 @@ class BaseListView(APIView):
     model = None
     serializer_class = None
 
-    def get(self, request:Request) -> Response:
+    def get(self, request: Request) -> Response:
         queryset = self.model.objects.all()
         serializer = self.serializer_class(queryset, many=True)
         return Response(serializer.data)
