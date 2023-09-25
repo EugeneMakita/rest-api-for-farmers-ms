@@ -1,20 +1,51 @@
+autoflake --remove-all-unused-imports --recursive --remove-unused-variables --in-place tobbacoCRMapi
+if [ $? -ne 0 ]; then
+    echo "isort failed!"
+    exit 1
+fi
+
+autoflake --remove-all-unused-imports --recursive --remove-unused-variables --in-place tobbacoCRM
+if [ $? -ne 0 ]; then
+    echo "isort failed!"
+    exit 1
+fi
+
 isort tobbacoCRMapi
 if [ $? -ne 0 ]; then
     echo "isort failed!"
     exit 1
 fi
 
-flake8 tobbacoCRMapi
+isort tobbacoCRM
+if [ $? -ne 0 ]; then
+    echo "isort failed!"
+    exit 1
+fi
+
+autopep8 tobbacoCRMapi/ --recursive --in-place --max-line-length 79
+if [ $? -ne 0 ]; then
+    echo "autopep8 failed!"
+    exit 1
+fi
+
+autopep8 tobbacoCRM/ --recursive --in-place --max-line-length 79
+if [ $? -ne 0 ]; then
+    echo "autopep8 failed!"
+    exit 1
+fi
+
+pydocstyle tobbacoCRMapi/
+if [ $? -ne 0 ]; then
+    echo "autopep8 failed!"
+    exit 1
+fi
+
+flake8 --exclude=migrations tobbacoCRMapi
 if [ $? -ne 0 ]; then
     echo "flake8 failed!"
     exit 1
 fi
 
-autopep8 tobbacoCRMapi/ --recursive --in-place
-if [ $? -ne 0 ]; then
-    echo "autopep8 failed!"
-    exit 1
-fi
 
 mypy tobbacoCRMapi
 if [ $? -ne 0 ]; then
