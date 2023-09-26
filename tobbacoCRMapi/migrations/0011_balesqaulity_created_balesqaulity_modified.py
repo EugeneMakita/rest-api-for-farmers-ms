@@ -5,20 +5,19 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('tobbacoCRMapi', '0010_bales_balesqaulity'),
+        ("tobbacoCRMapi", "0010_bales_balesqaulity"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='balesqaulity',
-            name='created',
+            model_name="balesqaulity",
+            name="created",
             field=models.DateTimeField(default=django.utils.timezone.now),
         ),
         migrations.AddField(
-            model_name='balesqaulity',
-            name='modified',
+            model_name="balesqaulity",
+            name="modified",
             field=models.DateTimeField(default=django.utils.timezone.now),
         ),
     ]

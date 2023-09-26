@@ -6,28 +6,35 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('tobbacoCRMapi', '0006_remove_bale_season_delete_contract_and_more'),
+        ("tobbacoCRMapi", "0006_remove_bale_season_delete_contract_and_more"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Contact',
+            name="Contact",
             fields=[
-                ('id', models.UUIDField(default=uuid.uuid4, editable=False,
-                 primary_key=True, serialize=False, unique=True)),
-                ('firstName', models.CharField(max_length=50)),
-                ('lastName', models.CharField(max_length=50)),
-                ('emailAddress', models.CharField(max_length=50)),
-                ('phonenumber', models.CharField(max_length=50)),
-                ('telephone', models.CharField(max_length=50)),
-                ('address', models.CharField(max_length=50)),
-                ('street', models.CharField(max_length=50)),
-                ('postCode', models.CharField(max_length=50)),
-                ('city', models.CharField(max_length=50)),
-                ('province', models.CharField(max_length=50)),
-                ('country', models.CharField(max_length=50)),
+                (
+                    "id",
+                    models.UUIDField(
+                        default=uuid.uuid4,
+                        editable=False,
+                        primary_key=True,
+                        serialize=False,
+                        unique=True,
+                    ),
+                ),
+                ("firstName", models.CharField(max_length=50)),
+                ("lastName", models.CharField(max_length=50)),
+                ("emailAddress", models.CharField(max_length=50)),
+                ("phonenumber", models.CharField(max_length=50)),
+                ("telephone", models.CharField(max_length=50)),
+                ("address", models.CharField(max_length=50)),
+                ("street", models.CharField(max_length=50)),
+                ("postCode", models.CharField(max_length=50)),
+                ("city", models.CharField(max_length=50)),
+                ("province", models.CharField(max_length=50)),
+                ("country", models.CharField(max_length=50)),
             ],
         ),
     ]

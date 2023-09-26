@@ -5,8 +5,9 @@ from django.utils import timezone
 
 
 class Contact(models.Model):
-    id = models.UUIDField(default=uuid.uuid4, editable=False,
-                          unique=True, primary_key=True)
+    id = models.UUIDField(
+        default=uuid.uuid4, editable=False, unique=True, primary_key=True
+    )
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     email_address = models.CharField(max_length=50)

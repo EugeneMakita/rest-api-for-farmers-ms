@@ -4,35 +4,34 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('tobbacoCRMapi', '0013_season'),
+        ("tobbacoCRMapi", "0013_season"),
     ]
 
     operations = [
         migrations.RenameField(
-            model_name='contact',
-            old_name='emailAddress',
-            new_name='email_address',
+            model_name="contact",
+            old_name="emailAddress",
+            new_name="email_address",
         ),
         migrations.RenameField(
-            model_name='contact',
-            old_name='firstName',
-            new_name='first_name',
+            model_name="contact",
+            old_name="firstName",
+            new_name="first_name",
         ),
         migrations.RenameField(
-            model_name='contact',
-            old_name='lastName',
-            new_name='last_name',
+            model_name="contact",
+            old_name="lastName",
+            new_name="last_name",
         ),
         migrations.RenameField(
-            model_name='contact',
-            old_name='phonenumber',
-            new_name='phone_number',
+            model_name="contact",
+            old_name="phonenumber",
+            new_name="phone_number",
         ),
         migrations.RenameField(
-            model_name='contact',
-            old_name='postCode',
-            new_name='post_code',
+            model_name="contact",
+            old_name="postCode",
+            new_name="post_code",
         ),
     ]

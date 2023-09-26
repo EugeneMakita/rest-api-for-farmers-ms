@@ -4,18 +4,17 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('tobbacoCRMapi', '0022_remove_images_name'),
+        ("tobbacoCRMapi", "0022_remove_images_name"),
     ]
 
     operations = [
         migrations.DeleteModel(
-            name='Files',
+            name="Files",
         ),
         migrations.RenameField(
-            model_name='images',
-            old_name='thumbnail',
-            new_name='medium',
+            model_name="images",
+            old_name="thumbnail",
+            new_name="medium",
         ),
     ]

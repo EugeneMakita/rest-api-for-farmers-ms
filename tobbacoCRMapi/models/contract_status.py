@@ -5,8 +5,9 @@ from django.utils import timezone
 
 
 class ContractStatus(models.Model):
-    id = models.UUIDField(default=uuid.uuid4, editable=False,
-                          unique=True, primary_key=True)
+    id = models.UUIDField(
+        default=uuid.uuid4, editable=False, unique=True, primary_key=True
+    )
     color_codes = models.CharField(max_length=8)
     name = models.CharField(max_length=50, unique=True)
     created = models.DateTimeField(default=timezone.now)

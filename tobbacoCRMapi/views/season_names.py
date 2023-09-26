@@ -19,6 +19,7 @@ class SeasonNamesDetail(BaseDetailView):
     delete:
     Delete a specific name by id.
     """
+
     model = SeasonNames
     serializer_class = SeasonNamesSerializer
 
@@ -37,6 +38,7 @@ class SeasonsNamesList(BaseListView):
     post:
     Create a new name.
     """
+
     model = SeasonNames
     serializer_class = SeasonNamesSerializer
 

@@ -7,36 +7,47 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('tobbacoCRMapi', '0014_rename_emailaddress_contact_email_address_and_more'),
+        ("tobbacoCRMapi", "0014_rename_emailaddress_contact_email_address_and_more"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='ContractStatus',
+            name="ContractStatus",
             fields=[
-                ('id', models.UUIDField(default=uuid.uuid4, editable=False,
-                 primary_key=True, serialize=False, unique=True)),
-                ('color_codes', models.CharField(max_length=8)),
-                ('name', models.CharField(max_length=50, unique=True)),
-                ('created', models.DateTimeField(
-                    default=django.utils.timezone.now)),
-                ('modified', models.DateTimeField(
-                    default=django.utils.timezone.now)),
+                (
+                    "id",
+                    models.UUIDField(
+                        default=uuid.uuid4,
+                        editable=False,
+                        primary_key=True,
+                        serialize=False,
+                        unique=True,
+                    ),
+                ),
+                ("color_codes", models.CharField(max_length=8)),
+                ("name", models.CharField(max_length=50, unique=True)),
+                ("created", models.DateTimeField(default=django.utils.timezone.now)),
+                ("modified", models.DateTimeField(default=django.utils.timezone.now)),
             ],
         ),
         migrations.CreateModel(
-            name='FarmerStatus',
+            name="FarmerStatus",
             fields=[
-                ('id', models.UUIDField(default=uuid.uuid4, editable=False,
-                 primary_key=True, serialize=False, unique=True)),
-                ('color_codes', models.CharField(max_length=8)),
-                ('name', models.CharField(max_length=50, unique=True)),
-                ('created', models.DateTimeField(
-                    default=django.utils.timezone.now)),
-                ('modified', models.DateTimeField(
-                    default=django.utils.timezone.now)),
+                (
+                    "id",
+                    models.UUIDField(
+                        default=uuid.uuid4,
+                        editable=False,
+                        primary_key=True,
+                        serialize=False,
+                        unique=True,
+                    ),
+                ),
+                ("color_codes", models.CharField(max_length=8)),
+                ("name", models.CharField(max_length=50, unique=True)),
+                ("created", models.DateTimeField(default=django.utils.timezone.now)),
+                ("modified", models.DateTimeField(default=django.utils.timezone.now)),
             ],
         ),
     ]

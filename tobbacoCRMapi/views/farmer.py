@@ -19,6 +19,7 @@ class FarmerDetail(BaseDetailView):
     delete:
     Delete a specific farmer by id.
     """
+
     model = Farmer
     serializer_class = FarmerSerializer
 
@@ -37,6 +38,7 @@ class FarmerList(BaseListView):
     post:
     Create a new farmer.
     """
+
     model = Farmer
     serializer_class = FarmerSerializer
 

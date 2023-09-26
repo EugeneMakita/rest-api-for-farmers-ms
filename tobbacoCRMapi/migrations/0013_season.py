@@ -7,23 +7,28 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('tobbacoCRMapi', '0012_bales_created_bales_modified_contact_created_and_more'),
+        ("tobbacoCRMapi", "0012_bales_created_bales_modified_contact_created_and_more"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Season',
+            name="Season",
             fields=[
-                ('id', models.UUIDField(default=uuid.uuid4, editable=False,
-                 primary_key=True, serialize=False, unique=True)),
-                ('growers_number', models.CharField(max_length=50, unique=True)),
-                ('total_land_grown', models.FloatField(default=0)),
-                ('created', models.DateTimeField(
-                    default=django.utils.timezone.now)),
-                ('modified', models.DateTimeField(
-                    default=django.utils.timezone.now)),
+                (
+                    "id",
+                    models.UUIDField(
+                        default=uuid.uuid4,
+                        editable=False,
+                        primary_key=True,
+                        serialize=False,
+                        unique=True,
+                    ),
+                ),
+                ("growers_number", models.CharField(max_length=50, unique=True)),
+                ("total_land_grown", models.FloatField(default=0)),
+                ("created", models.DateTimeField(default=django.utils.timezone.now)),
+                ("modified", models.DateTimeField(default=django.utils.timezone.now)),
             ],
         ),
     ]

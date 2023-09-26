@@ -9,4 +9,4 @@ class BalesSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Bales
-        fields = '__all__'
+        fields = "__all__"

@@ -6,19 +6,26 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('tobbacoCRMapi', '0007_contact'),
+        ("tobbacoCRMapi", "0007_contact"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='SeasonWorkflows',
+            name="SeasonWorkflows",
             fields=[
-                ('id', models.UUIDField(default=uuid.uuid4, editable=False,
-                 primary_key=True, serialize=False, unique=True)),
-                ('color_codes', models.CharField(max_length=8)),
-                ('name', models.CharField(max_length=50, unique=True)),
+                (
+                    "id",
+                    models.UUIDField(
+                        default=uuid.uuid4,
+                        editable=False,
+                        primary_key=True,
+                        serialize=False,
+                        unique=True,
+                    ),
+                ),
+                ("color_codes", models.CharField(max_length=8)),
+                ("name", models.CharField(max_length=50, unique=True)),
             ],
         ),
     ]

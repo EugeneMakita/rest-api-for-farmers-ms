@@ -9,4 +9,4 @@ class SuppliesTypeSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = SuppliesType
-        fields = '__all__'
+        fields = "__all__"

@@ -19,6 +19,7 @@ class CommentsDetail(BaseDetailView):
     delete:
     Delete a specific contact by id.
     """
+
     model = Comments
     serializer_class = CommentsSerializer
 
@@ -37,6 +38,7 @@ class CommentsList(BaseListView):
     post:
     Create a new contact.
     """
+
     model = Comments
     serializer_class = CommentsSerializer
 

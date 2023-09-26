@@ -19,6 +19,7 @@ class BalesDetail(BaseDetailView):
     delete:
     Delete a specific bales by id.
     """
+
     model = Bales
     serializer_class = BalesSerializer
 
@@ -37,6 +38,7 @@ class BalesList(BaseListView):
     post:
     Create a new bales.
     """
+
     model = Bales
     serializer_class = BalesSerializer
 

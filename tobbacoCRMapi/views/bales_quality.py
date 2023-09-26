@@ -19,6 +19,7 @@ class BalesQualityDetail(BaseDetailView):
     delete:
     Delete a specific Qaulity by id.
     """
+
     model = BalesQaulity
     serializer_class = BalesQaulitySerializer
 
@@ -37,6 +38,7 @@ class BalesQaulityList(BaseListView):
     post:
     Create a new Quality.
     """
+
     model = BalesQaulity
     serializer_class = BalesQaulitySerializer
 

@@ -19,6 +19,7 @@ class ContractsDetail(BaseDetailView):
     delete:
     Delete a specific contract by id.
     """
+
     model = Contract
     serializer_class = ContractsSerializer
 
@@ -37,6 +38,7 @@ class ContractsList(BaseListView):
     post:
     Create a new contract.
     """
+
     model = Contract
     serializer_class = ContractsSerializer
 

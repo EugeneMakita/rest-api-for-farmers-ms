@@ -4,38 +4,37 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('tobbacoCRMapi', '0005_seasonnames_bale_season_season_farmer_and_more'),
+        ("tobbacoCRMapi", "0005_seasonnames_bale_season_season_farmer_and_more"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='bale',
-            name='season',
+            model_name="bale",
+            name="season",
         ),
         migrations.DeleteModel(
-            name='Contract',
+            name="Contract",
         ),
         migrations.RemoveField(
-            model_name='farmer',
-            name='user',
+            model_name="farmer",
+            name="user",
         ),
         migrations.AlterUniqueTogether(
-            name='season',
+            name="season",
             unique_together=None,
         ),
         migrations.RemoveField(
-            model_name='season',
-            name='farmer',
+            model_name="season",
+            name="farmer",
         ),
         migrations.DeleteModel(
-            name='Bale',
+            name="Bale",
         ),
         migrations.DeleteModel(
-            name='Farmer',
+            name="Farmer",
         ),
         migrations.DeleteModel(
-            name='Season',
+            name="Season",
         ),
     ]

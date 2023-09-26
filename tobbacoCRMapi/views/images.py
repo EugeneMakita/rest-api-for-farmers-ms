@@ -25,12 +25,12 @@ class ImageDetailView(APIView):
     Delete a specific images by id.
     """
 
-    def delete(self, pk):
+    def delete(self, pk: str) -> Response:
         image = Images.objects.get(pk=pk)
         image.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
-    def get_object(self, pk):
+    def get_object(self, pk: str) -> Response:
         return self.model.objects.get(pk=pk)
 
     def get(self, pk: str) -> Response:
@@ -49,21 +49,25 @@ class ImagesList(BaseListView):
     post:
     Create a new Image.
     """
+
     model = Images
     serializer_class = ImagesSerializer
 
     @swagger_auto_schema(request_body=ImagesSerializer)
     def post(self, request) -> Response:
-        base64_data = request.data.get('base64_data')
+        base64_data = request.data.get("base64_data")
         if not base64_data:
-            return Response({'errors': 'File is empty'}, status=status.HTTP_400_BAD_REQUEST)
+            return Response(
+                {"errors": "File is empty"}, status=status.HTTP_400_BAD_REQUEST
+            )
 
         try:
-            serializer = ImagesSerializer(
-                data=ImageProcessor.store_image(base64_data))
+            serializer = ImagesSerializer(data=ImageProcessor.store_file(base64_data))
             if serializer.is_valid():
                 serializer.save()
                 return Response(serializer.data, status=status.HTTP_201_CREATED)
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         except ValueError as e:
-            return Response({'errors': str(e)}, status=status.HTTP_415_UNSUPPORTED_MEDIA_TYPE)
+            return Response(
+                {"errors": str(e)}, status=status.HTTP_415_UNSUPPORTED_MEDIA_TYPE
+            )

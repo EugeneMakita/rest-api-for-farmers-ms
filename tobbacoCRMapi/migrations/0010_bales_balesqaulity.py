@@ -6,28 +6,43 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('tobbacoCRMapi', '0009_contract'),
+        ("tobbacoCRMapi", "0009_contract"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Bales',
+            name="Bales",
             fields=[
-                ('id', models.UUIDField(default=uuid.uuid4, editable=False,
-                 primary_key=True, serialize=False, unique=True)),
-                ('weight', models.FloatField()),
-                ('price_per_kilogram', models.FloatField()),
+                (
+                    "id",
+                    models.UUIDField(
+                        default=uuid.uuid4,
+                        editable=False,
+                        primary_key=True,
+                        serialize=False,
+                        unique=True,
+                    ),
+                ),
+                ("weight", models.FloatField()),
+                ("price_per_kilogram", models.FloatField()),
             ],
         ),
         migrations.CreateModel(
-            name='BalesQaulity',
+            name="BalesQaulity",
             fields=[
-                ('id', models.UUIDField(default=uuid.uuid4, editable=False,
-                 primary_key=True, serialize=False, unique=True)),
-                ('color_codes', models.CharField(max_length=8)),
-                ('name', models.CharField(max_length=50, unique=True)),
+                (
+                    "id",
+                    models.UUIDField(
+                        default=uuid.uuid4,
+                        editable=False,
+                        primary_key=True,
+                        serialize=False,
+                        unique=True,
+                    ),
+                ),
+                ("color_codes", models.CharField(max_length=8)),
+                ("name", models.CharField(max_length=50, unique=True)),
             ],
         ),
     ]

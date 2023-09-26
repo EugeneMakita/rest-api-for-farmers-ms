@@ -6,40 +6,54 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('tobbacoCRMapi', '0002_alter_farmer_id'),
+        ("tobbacoCRMapi", "0002_alter_farmer_id"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='bale',
-            name='uuid',
+            model_name="bale",
+            name="uuid",
         ),
         migrations.RemoveField(
-            model_name='contract',
-            name='uuid',
+            model_name="contract",
+            name="uuid",
         ),
         migrations.RemoveField(
-            model_name='season',
-            name='uuid',
+            model_name="season",
+            name="uuid",
         ),
         migrations.AlterField(
-            model_name='bale',
-            name='id',
+            model_name="bale",
+            name="id",
             field=models.UUIDField(
-                default=uuid.uuid4, editable=False, primary_key=True, serialize=False, unique=True),
+                default=uuid.uuid4,
+                editable=False,
+                primary_key=True,
+                serialize=False,
+                unique=True,
+            ),
         ),
         migrations.AlterField(
-            model_name='contract',
-            name='id',
+            model_name="contract",
+            name="id",
             field=models.UUIDField(
-                default=uuid.uuid4, editable=False, primary_key=True, serialize=False, unique=True),
+                default=uuid.uuid4,
+                editable=False,
+                primary_key=True,
+                serialize=False,
+                unique=True,
+            ),
         ),
         migrations.AlterField(
-            model_name='season',
-            name='id',
+            model_name="season",
+            name="id",
             field=models.UUIDField(
-                default=uuid.uuid4, editable=False, primary_key=True, serialize=False, unique=True),
+                default=uuid.uuid4,
+                editable=False,
+                primary_key=True,
+                serialize=False,
+                unique=True,
+            ),
         ),
     ]

@@ -19,6 +19,7 @@ class SuppliesTypeDetail(BaseDetailView):
     delete:
     Delete a specific supplies type by id.
     """
+
     model = SuppliesType
     serializer_class = SuppliesTypeSerializer
 
@@ -37,6 +38,7 @@ class SuppliesTypeList(BaseListView):
     post:
     Create a new supplies type.
     """
+
     model = SuppliesType
     serializer_class = SuppliesTypeSerializer
 

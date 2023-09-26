@@ -19,6 +19,7 @@ class LandTypeDetail(BaseDetailView):
     delete:
     Delete a specific land type by id.
     """
+
     model = LandType
     serializer_class = LandTypeSerializer
 
@@ -37,6 +38,7 @@ class LandTypeList(BaseListView):
     post:
     Create a new Land type.
     """
+
     model = LandType
     serializer_class = LandTypeSerializer
 

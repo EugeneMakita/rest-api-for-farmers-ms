@@ -9,4 +9,4 @@ class LandTypeSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = LandType
-        fields = '__all__'
+        fields = "__all__"

@@ -7,23 +7,31 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('tobbacoCRMapi', '0019_contractstatus_farmer_farmerstatus_landtype_supplies_and_more'),
+        (
+            "tobbacoCRMapi",
+            "0019_contractstatus_farmer_farmerstatus_landtype_supplies_and_more",
+        ),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Comments',
+            name="Comments",
             fields=[
-                ('id', models.UUIDField(default=uuid.uuid4, editable=False,
-                 primary_key=True, serialize=False, unique=True)),
-                ('is_deleted', models.BooleanField(default=False)),
-                ('content', models.TextField()),
-                ('created', models.DateTimeField(
-                    default=django.utils.timezone.now)),
-                ('modified', models.DateTimeField(
-                    default=django.utils.timezone.now)),
+                (
+                    "id",
+                    models.UUIDField(
+                        default=uuid.uuid4,
+                        editable=False,
+                        primary_key=True,
+                        serialize=False,
+                        unique=True,
+                    ),
+                ),
+                ("is_deleted", models.BooleanField(default=False)),
+                ("content", models.TextField()),
+                ("created", models.DateTimeField(default=django.utils.timezone.now)),
+                ("modified", models.DateTimeField(default=django.utils.timezone.now)),
             ],
         ),
     ]

@@ -19,6 +19,7 @@ class SeasonWorkflowsDetail(BaseDetailView):
     delete:
     Delete a specific workflow by id.
     """
+
     model = SeasonWorkflows
     serializer_class = SeasonWorkflowsSerializer
 
@@ -37,6 +38,7 @@ class SeasonWorkflowList(BaseListView):
     post:
     Create a new Workflow.
     """
+
     model = SeasonWorkflows
     serializer_class = SeasonWorkflowsSerializer
 

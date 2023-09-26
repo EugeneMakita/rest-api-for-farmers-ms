@@ -19,6 +19,7 @@ class FarmerStatusDetail(BaseDetailView):
     delete:
     Delete a specific status by id.
     """
+
     model = FarmerStatus
     serializer_class = FarmerStatusSerializer
 
@@ -37,6 +38,7 @@ class FarmerStatusList(BaseListView):
     post:
     Create a new status.
     """
+
     model = FarmerStatus
     serializer_class = FarmerStatusSerializer
 

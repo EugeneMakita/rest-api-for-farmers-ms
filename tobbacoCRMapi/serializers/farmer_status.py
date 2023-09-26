@@ -9,4 +9,4 @@ class FarmerStatusSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = FarmerStatus
-        fields = '__all__'
+        fields = "__all__"

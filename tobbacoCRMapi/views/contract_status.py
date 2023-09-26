@@ -19,6 +19,7 @@ class ContractsStatusDetail(BaseDetailView):
     delete:
     Delete a specific contact by id.
     """
+
     model = ContractStatus
     serializer_class = ContractsStatusSerializer
 
@@ -37,6 +38,7 @@ class ContactsStatusList(BaseListView):
     post:
     Create a new contact.
     """
+
     model = ContractStatus
     serializer_class = ContractsStatusSerializer
 

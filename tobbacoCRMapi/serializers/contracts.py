@@ -9,4 +9,4 @@ class ContractsSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Contract
-        fields = '__all__'
+        fields = "__all__"

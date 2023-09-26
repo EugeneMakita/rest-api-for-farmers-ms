@@ -7,100 +7,149 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('tobbacoCRMapi', '0018_delete_contractstatus_delete_farmer_and_more'),
+        ("tobbacoCRMapi", "0018_delete_contractstatus_delete_farmer_and_more"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='ContractStatus',
+            name="ContractStatus",
             fields=[
-                ('id', models.UUIDField(default=uuid.uuid4, editable=False,
-                 primary_key=True, serialize=False, unique=True)),
-                ('color_codes', models.CharField(max_length=8)),
-                ('name', models.CharField(max_length=50, unique=True)),
-                ('created', models.DateTimeField(
-                    default=django.utils.timezone.now)),
-                ('modified', models.DateTimeField(
-                    default=django.utils.timezone.now)),
+                (
+                    "id",
+                    models.UUIDField(
+                        default=uuid.uuid4,
+                        editable=False,
+                        primary_key=True,
+                        serialize=False,
+                        unique=True,
+                    ),
+                ),
+                ("color_codes", models.CharField(max_length=8)),
+                ("name", models.CharField(max_length=50, unique=True)),
+                ("created", models.DateTimeField(default=django.utils.timezone.now)),
+                ("modified", models.DateTimeField(default=django.utils.timezone.now)),
             ],
         ),
         migrations.CreateModel(
-            name='Farmer',
+            name="Farmer",
             fields=[
-                ('id', models.UUIDField(default=uuid.uuid4,
-                 editable=False, primary_key=True, serialize=False)),
-                ('growers_number', models.CharField(max_length=50, unique=True)),
-                ('national_id', models.CharField(max_length=50)),
-                ('full_name', models.CharField(max_length=50)),
-                ('last_name', models.CharField(max_length=50)),
-                ('sex', models.CharField(choices=[
-                 ('M', 'Male'), ('F', 'Female'), ('O', 'Other')], max_length=10)),
-                ('title', models.CharField(choices=[
-                 ('Mr', 'Mr'), ('Mrs', 'Mrs'), ('Ms', 'Ms'), ('Dr', 'Doctor')], max_length=10)),
-                ('date_of_birth', models.DateField(blank=True, null=True)),
-                ('total_land', models.FloatField(default=0)),
-                ('address_line_of_farm', models.TextField()),
-                ('address_line_two_of_farm', models.TextField()),
-                ('province_of_farm', models.TextField()),
-                ('city_of_farm', models.TextField()),
-                ('country_of_farm', models.TextField()),
-                ('created', models.DateTimeField(
-                    default=django.utils.timezone.now)),
-                ('modified', models.DateTimeField(
-                    default=django.utils.timezone.now)),
+                (
+                    "id",
+                    models.UUIDField(
+                        default=uuid.uuid4,
+                        editable=False,
+                        primary_key=True,
+                        serialize=False,
+                    ),
+                ),
+                ("growers_number", models.CharField(max_length=50, unique=True)),
+                ("national_id", models.CharField(max_length=50)),
+                ("full_name", models.CharField(max_length=50)),
+                ("last_name", models.CharField(max_length=50)),
+                (
+                    "sex",
+                    models.CharField(
+                        choices=[("M", "Male"), ("F", "Female"), ("O", "Other")],
+                        max_length=10,
+                    ),
+                ),
+                (
+                    "title",
+                    models.CharField(
+                        choices=[
+                            ("Mr", "Mr"),
+                            ("Mrs", "Mrs"),
+                            ("Ms", "Ms"),
+                            ("Dr", "Doctor"),
+                        ],
+                        max_length=10,
+                    ),
+                ),
+                ("date_of_birth", models.DateField(blank=True, null=True)),
+                ("total_land", models.FloatField(default=0)),
+                ("address_line_of_farm", models.TextField()),
+                ("address_line_two_of_farm", models.TextField()),
+                ("province_of_farm", models.TextField()),
+                ("city_of_farm", models.TextField()),
+                ("country_of_farm", models.TextField()),
+                ("created", models.DateTimeField(default=django.utils.timezone.now)),
+                ("modified", models.DateTimeField(default=django.utils.timezone.now)),
             ],
         ),
         migrations.CreateModel(
-            name='FarmerStatus',
+            name="FarmerStatus",
             fields=[
-                ('id', models.UUIDField(default=uuid.uuid4, editable=False,
-                 primary_key=True, serialize=False, unique=True)),
-                ('color_codes', models.CharField(max_length=8)),
-                ('name', models.CharField(max_length=50, unique=True)),
-                ('created', models.DateTimeField(
-                    default=django.utils.timezone.now)),
-                ('modified', models.DateTimeField(
-                    default=django.utils.timezone.now)),
+                (
+                    "id",
+                    models.UUIDField(
+                        default=uuid.uuid4,
+                        editable=False,
+                        primary_key=True,
+                        serialize=False,
+                        unique=True,
+                    ),
+                ),
+                ("color_codes", models.CharField(max_length=8)),
+                ("name", models.CharField(max_length=50, unique=True)),
+                ("created", models.DateTimeField(default=django.utils.timezone.now)),
+                ("modified", models.DateTimeField(default=django.utils.timezone.now)),
             ],
         ),
         migrations.CreateModel(
-            name='LandType',
+            name="LandType",
             fields=[
-                ('id', models.UUIDField(default=uuid.uuid4, editable=False,
-                 primary_key=True, serialize=False, unique=True)),
-                ('color_codes', models.CharField(max_length=8)),
-                ('name', models.CharField(max_length=50, unique=True)),
-                ('created', models.DateTimeField(
-                    default=django.utils.timezone.now)),
-                ('modified', models.DateTimeField(
-                    default=django.utils.timezone.now)),
+                (
+                    "id",
+                    models.UUIDField(
+                        default=uuid.uuid4,
+                        editable=False,
+                        primary_key=True,
+                        serialize=False,
+                        unique=True,
+                    ),
+                ),
+                ("color_codes", models.CharField(max_length=8)),
+                ("name", models.CharField(max_length=50, unique=True)),
+                ("created", models.DateTimeField(default=django.utils.timezone.now)),
+                ("modified", models.DateTimeField(default=django.utils.timezone.now)),
             ],
         ),
         migrations.CreateModel(
-            name='Supplies',
+            name="Supplies",
             fields=[
-                ('id', models.UUIDField(default=uuid.uuid4, editable=False,
-                 primary_key=True, serialize=False, unique=True)),
-                ('amount', models.IntegerField(default=0)),
-                ('created', models.DateTimeField(
-                    default=django.utils.timezone.now)),
-                ('modified', models.DateTimeField(
-                    default=django.utils.timezone.now)),
+                (
+                    "id",
+                    models.UUIDField(
+                        default=uuid.uuid4,
+                        editable=False,
+                        primary_key=True,
+                        serialize=False,
+                        unique=True,
+                    ),
+                ),
+                ("amount", models.IntegerField(default=0)),
+                ("created", models.DateTimeField(default=django.utils.timezone.now)),
+                ("modified", models.DateTimeField(default=django.utils.timezone.now)),
             ],
         ),
         migrations.CreateModel(
-            name='SuppliesType',
+            name="SuppliesType",
             fields=[
-                ('id', models.UUIDField(default=uuid.uuid4, editable=False,
-                 primary_key=True, serialize=False, unique=True)),
-                ('color_codes', models.CharField(max_length=8)),
-                ('name', models.CharField(max_length=50, unique=True)),
-                ('created', models.DateTimeField(
-                    default=django.utils.timezone.now)),
-                ('modified', models.DateTimeField(
-                    default=django.utils.timezone.now)),
+                (
+                    "id",
+                    models.UUIDField(
+                        default=uuid.uuid4,
+                        editable=False,
+                        primary_key=True,
+                        serialize=False,
+                        unique=True,
+                    ),
+                ),
+                ("color_codes", models.CharField(max_length=8)),
+                ("name", models.CharField(max_length=50, unique=True)),
+                ("created", models.DateTimeField(default=django.utils.timezone.now)),
+                ("modified", models.DateTimeField(default=django.utils.timezone.now)),
             ],
         ),
     ]

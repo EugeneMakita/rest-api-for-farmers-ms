@@ -8,23 +8,34 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('tobbacoCRMapi', '0015_contractstatus_farmerstatus'),
+        ("tobbacoCRMapi", "0015_contractstatus_farmerstatus"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Farmer',
+            name="Farmer",
             fields=[
-                ('id', models.UUIDField(default=uuid.uuid4,
-                 editable=False, primary_key=True, serialize=False)),
-                ('growers_number', models.CharField(max_length=50, unique=True)),
-                ('total_land', models.FloatField(default=0)),
-                ('address', models.TextField()),
-                ('user', models.OneToOneField(
-                    on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.UUIDField(
+                        default=uuid.uuid4,
+                        editable=False,
+                        primary_key=True,
+                        serialize=False,
+                    ),
+                ),
+                ("growers_number", models.CharField(max_length=50, unique=True)),
+                ("total_land", models.FloatField(default=0)),
+                ("address", models.TextField()),
+                (
+                    "user",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
         ),
     ]

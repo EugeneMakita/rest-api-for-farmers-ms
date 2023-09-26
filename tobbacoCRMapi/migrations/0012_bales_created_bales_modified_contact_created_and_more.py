@@ -5,60 +5,59 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('tobbacoCRMapi', '0011_balesqaulity_created_balesqaulity_modified'),
+        ("tobbacoCRMapi", "0011_balesqaulity_created_balesqaulity_modified"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='bales',
-            name='created',
+            model_name="bales",
+            name="created",
             field=models.DateTimeField(default=django.utils.timezone.now),
         ),
         migrations.AddField(
-            model_name='bales',
-            name='modified',
+            model_name="bales",
+            name="modified",
             field=models.DateTimeField(default=django.utils.timezone.now),
         ),
         migrations.AddField(
-            model_name='contact',
-            name='created',
+            model_name="contact",
+            name="created",
             field=models.DateTimeField(default=django.utils.timezone.now),
         ),
         migrations.AddField(
-            model_name='contact',
-            name='modified',
+            model_name="contact",
+            name="modified",
             field=models.DateTimeField(default=django.utils.timezone.now),
         ),
         migrations.AddField(
-            model_name='contract',
-            name='created',
+            model_name="contract",
+            name="created",
             field=models.DateTimeField(default=django.utils.timezone.now),
         ),
         migrations.AddField(
-            model_name='contract',
-            name='modified',
+            model_name="contract",
+            name="modified",
             field=models.DateTimeField(default=django.utils.timezone.now),
         ),
         migrations.AddField(
-            model_name='seasonnames',
-            name='created',
+            model_name="seasonnames",
+            name="created",
             field=models.DateTimeField(default=django.utils.timezone.now),
         ),
         migrations.AddField(
-            model_name='seasonnames',
-            name='modified',
+            model_name="seasonnames",
+            name="modified",
             field=models.DateTimeField(default=django.utils.timezone.now),
         ),
         migrations.AddField(
-            model_name='seasonworkflows',
-            name='created',
+            model_name="seasonworkflows",
+            name="created",
             field=models.DateTimeField(default=django.utils.timezone.now),
         ),
         migrations.AddField(
-            model_name='seasonworkflows',
-            name='modified',
+            model_name="seasonworkflows",
+            name="modified",
             field=models.DateTimeField(default=django.utils.timezone.now),
         ),
     ]

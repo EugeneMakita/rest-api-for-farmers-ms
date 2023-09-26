@@ -9,4 +9,4 @@ class SeasonNamesSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = SeasonNames
-        fields = '__all__'
+        fields = "__all__"

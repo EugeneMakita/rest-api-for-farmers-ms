@@ -19,6 +19,7 @@ class ContactsDetail(BaseDetailView):
     delete:
     Delete a specific contact by id.
     """
+
     model = Contact
     serializer_class = ContactSerializer
 
@@ -37,6 +38,7 @@ class ContactsList(BaseListView):
     post:
     Create a new contact.
     """
+
     model = Contact
     serializer_class = ContactSerializer
 

@@ -4,28 +4,27 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('tobbacoCRMapi', '0017_landtype_supplies_suppliestype_and_more'),
+        ("tobbacoCRMapi", "0017_landtype_supplies_suppliestype_and_more"),
     ]
 
     operations = [
         migrations.DeleteModel(
-            name='ContractStatus',
+            name="ContractStatus",
         ),
         migrations.DeleteModel(
-            name='Farmer',
+            name="Farmer",
         ),
         migrations.DeleteModel(
-            name='FarmerStatus',
+            name="FarmerStatus",
         ),
         migrations.DeleteModel(
-            name='LandType',
+            name="LandType",
         ),
         migrations.DeleteModel(
-            name='Supplies',
+            name="Supplies",
         ),
         migrations.DeleteModel(
-            name='SuppliesType',
+            name="SuppliesType",
         ),
     ]
