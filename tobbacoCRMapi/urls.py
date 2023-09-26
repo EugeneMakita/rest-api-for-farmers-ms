@@ -11,6 +11,7 @@ from .views.contract import ContractsDetail, ContractsList
 from .views.contract_status import ContactsStatusList, ContractsStatusDetail
 from .views.farmer import FarmerDetail, FarmerList
 from .views.farmer_status import FarmerStatusDetail, FarmerStatusList
+from .views.files import FilesDetailView, FilesList
 from .views.images import ImageDetailView, ImagesList
 from .views.land_type import LandTypeDetail, LandTypeList
 from .views.season import SeasonsDetail, SeasonsList
@@ -134,4 +135,6 @@ urlpatterns = [
     ),
     path("images", ImagesList.as_view(), name="images-create-index"),
     path("images/<uuid:pk>/", ImageDetailView.as_view(), name="images-get-delete"),
+    path("files", FilesList.as_view(), name="files-create-index"),
+    path("files/<uuid:pk>/", FilesDetailView.as_view(), name="files-get-delete"),
 ]

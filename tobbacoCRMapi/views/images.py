@@ -1,20 +1,13 @@
-import logging
-
 from drf_yasg.utils import swagger_auto_schema
-from rest_framework import status
 from rest_framework.response import Response
-from rest_framework.views import APIView
 
 from ..models.images import Images
 from ..serializers.images import ImagesSerializer
-from ..services.image_processor import ImageProcessor
-from .base import BaseListView
-
-logging.basicConfig(level=logging.DEBUG)
-logger = logging.getLogger(__name__)
+from ..services.image_service import ImageService
+from .files_base import FilesBaseDetailView, FilesBaseListView
 
 
-class ImageDetailView(APIView):
+class ImageDetailView(FilesBaseDetailView):
     """
     Images Detail view.
 
@@ -25,21 +18,11 @@ class ImageDetailView(APIView):
     Delete a specific images by id.
     """
 
-    def delete(self, pk: str) -> Response:
-        image = Images.objects.get(pk=pk)
-        image.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
-
-    def get_object(self, pk: str) -> Response:
-        return self.model.objects.get(pk=pk)
-
-    def get(self, pk: str) -> Response:
-        instance = self.get_object(pk)
-        serializer = self.serializer_class(instance)
-        return Response(serializer.data)
+    model = Images
+    serializer_class = ImagesSerializer
 
 
-class ImagesList(BaseListView):
+class ImagesList(FilesBaseListView):
     """
     Images List view.
 
@@ -52,24 +35,8 @@ class ImagesList(BaseListView):
 
     model = Images
     serializer_class = ImagesSerializer
+    file_service_class = ImageService
 
     @swagger_auto_schema(request_body=ImagesSerializer)
     def post(self, request) -> Response:
-        base64_data = request.data.get("base64_data")
-        if not base64_data:
-            return Response(
-                {"errors": "File is empty"}, status=status.HTTP_400_BAD_REQUEST
-            )
-
-        try:
-            serializer = ImagesSerializer(
-                data=ImageProcessor.store_file(request, base64_data)
-            )
-            if serializer.is_valid():
-                serializer.save()
-                return Response(serializer.data, status=status.HTTP_201_CREATED)
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-        except ValueError as e:
-            return Response(
-                {"errors": str(e)}, status=status.HTTP_415_UNSUPPORTED_MEDIA_TYPE
-            )
+        return super().post(request)
