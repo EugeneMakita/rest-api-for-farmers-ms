@@ -5,9 +5,9 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from ..helpers.image_processor import ImageProcessor
 from ..models.images import Images
 from ..serializers.images import ImagesSerializer
+from ..services.image_processor import ImageProcessor
 from .base import BaseListView
 
 logging.basicConfig(level=logging.DEBUG)
@@ -62,7 +62,9 @@ class ImagesList(BaseListView):
             )
 
         try:
-            serializer = ImagesSerializer(data=ImageProcessor.store_file(base64_data))
+            serializer = ImagesSerializer(
+                data=ImageProcessor.store_file(request, base64_data)
+            )
             if serializer.is_valid():
                 serializer.save()
                 return Response(serializer.data, status=status.HTTP_201_CREATED)

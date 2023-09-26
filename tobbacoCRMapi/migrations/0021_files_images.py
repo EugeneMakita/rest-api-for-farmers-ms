@@ -26,8 +26,10 @@ class Migration(migrations.Migration):
                 ),
                 ("name", models.CharField(blank=True, max_length=255, null=True)),
                 ("path", models.CharField(blank=True, max_length=255, null=True)),
-                ("created", models.DateTimeField(default=django.utils.timezone.now)),
-                ("modified", models.DateTimeField(default=django.utils.timezone.now)),
+                ("created", models.DateTimeField(
+                    default=django.utils.timezone.now)),
+                ("modified", models.DateTimeField(
+                    default=django.utils.timezone.now)),
             ],
         ),
         migrations.CreateModel(
@@ -43,11 +45,14 @@ class Migration(migrations.Migration):
                     ),
                 ),
                 ("name", models.CharField(blank=True, max_length=255, null=True)),
-                ("thumbnail", models.CharField(blank=True, max_length=255, null=True)),
+                ("thumbnail", models.CharField(
+                    blank=True, max_length=255, null=True)),
                 ("small", models.CharField(blank=True, max_length=255, null=True)),
                 ("large", models.CharField(blank=True, max_length=255, null=True)),
-                ("created", models.DateTimeField(default=django.utils.timezone.now)),
-                ("modified", models.DateTimeField(default=django.utils.timezone.now)),
+                ("created", models.DateTimeField(
+                    default=django.utils.timezone.now)),
+                ("modified", models.DateTimeField(
+                    default=django.utils.timezone.now)),
             ],
         ),
     ]

@@ -27,8 +27,10 @@ class Migration(migrations.Migration):
                 ),
                 ("growers_number", models.CharField(max_length=50, unique=True)),
                 ("total_land_grown", models.FloatField(default=0)),
-                ("created", models.DateTimeField(default=django.utils.timezone.now)),
-                ("modified", models.DateTimeField(default=django.utils.timezone.now)),
+                ("created", models.DateTimeField(
+                    default=django.utils.timezone.now)),
+                ("modified", models.DateTimeField(
+                    default=django.utils.timezone.now)),
             ],
         ),
     ]

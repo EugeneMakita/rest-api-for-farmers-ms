@@ -18,7 +18,8 @@ class BaseDetailView(APIView):
 
     def patch(self, request: Request, pk: str) -> Response:
         instance = self.get_object(pk)
-        serializer = self.serializer_class(instance, data=request.data, partial=True)
+        serializer = self.serializer_class(
+            instance, data=request.data, partial=True)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)

@@ -27,8 +27,10 @@ class Migration(migrations.Migration):
                 ),
                 ("color_codes", models.CharField(max_length=8)),
                 ("name", models.CharField(max_length=50, unique=True)),
-                ("created", models.DateTimeField(default=django.utils.timezone.now)),
-                ("modified", models.DateTimeField(default=django.utils.timezone.now)),
+                ("created", models.DateTimeField(
+                    default=django.utils.timezone.now)),
+                ("modified", models.DateTimeField(
+                    default=django.utils.timezone.now)),
             ],
         ),
         migrations.CreateModel(
@@ -45,8 +47,10 @@ class Migration(migrations.Migration):
                     ),
                 ),
                 ("amount", models.IntegerField(default=0)),
-                ("created", models.DateTimeField(default=django.utils.timezone.now)),
-                ("modified", models.DateTimeField(default=django.utils.timezone.now)),
+                ("created", models.DateTimeField(
+                    default=django.utils.timezone.now)),
+                ("modified", models.DateTimeField(
+                    default=django.utils.timezone.now)),
             ],
         ),
         migrations.CreateModel(
@@ -64,8 +68,10 @@ class Migration(migrations.Migration):
                 ),
                 ("color_codes", models.CharField(max_length=8)),
                 ("name", models.CharField(max_length=50, unique=True)),
-                ("created", models.DateTimeField(default=django.utils.timezone.now)),
-                ("modified", models.DateTimeField(default=django.utils.timezone.now)),
+                ("created", models.DateTimeField(
+                    default=django.utils.timezone.now)),
+                ("modified", models.DateTimeField(
+                    default=django.utils.timezone.now)),
             ],
         ),
         migrations.RenameField(
@@ -138,7 +144,8 @@ class Migration(migrations.Migration):
             model_name="farmer",
             name="title",
             field=models.CharField(
-                choices=[("Mr", "Mr"), ("Mrs", "Mrs"), ("Ms", "Ms"), ("Dr", "Doctor")],
+                choices=[("Mr", "Mr"), ("Mrs", "Mrs"),
+                         ("Ms", "Ms"), ("Dr", "Doctor")],
                 default=str,
                 max_length=10,
             ),

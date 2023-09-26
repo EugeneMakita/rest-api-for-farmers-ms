@@ -27,8 +27,10 @@ class Migration(migrations.Migration):
                 ),
                 ("color_codes", models.CharField(max_length=8)),
                 ("name", models.CharField(max_length=50, unique=True)),
-                ("created", models.DateTimeField(default=django.utils.timezone.now)),
-                ("modified", models.DateTimeField(default=django.utils.timezone.now)),
+                ("created", models.DateTimeField(
+                    default=django.utils.timezone.now)),
+                ("modified", models.DateTimeField(
+                    default=django.utils.timezone.now)),
             ],
         ),
         migrations.CreateModel(
@@ -50,7 +52,8 @@ class Migration(migrations.Migration):
                 (
                     "sex",
                     models.CharField(
-                        choices=[("M", "Male"), ("F", "Female"), ("O", "Other")],
+                        choices=[("M", "Male"), ("F", "Female"),
+                                 ("O", "Other")],
                         max_length=10,
                     ),
                 ),
@@ -73,8 +76,10 @@ class Migration(migrations.Migration):
                 ("province_of_farm", models.TextField()),
                 ("city_of_farm", models.TextField()),
                 ("country_of_farm", models.TextField()),
-                ("created", models.DateTimeField(default=django.utils.timezone.now)),
-                ("modified", models.DateTimeField(default=django.utils.timezone.now)),
+                ("created", models.DateTimeField(
+                    default=django.utils.timezone.now)),
+                ("modified", models.DateTimeField(
+                    default=django.utils.timezone.now)),
             ],
         ),
         migrations.CreateModel(
@@ -92,8 +97,10 @@ class Migration(migrations.Migration):
                 ),
                 ("color_codes", models.CharField(max_length=8)),
                 ("name", models.CharField(max_length=50, unique=True)),
-                ("created", models.DateTimeField(default=django.utils.timezone.now)),
-                ("modified", models.DateTimeField(default=django.utils.timezone.now)),
+                ("created", models.DateTimeField(
+                    default=django.utils.timezone.now)),
+                ("modified", models.DateTimeField(
+                    default=django.utils.timezone.now)),
             ],
         ),
         migrations.CreateModel(
@@ -111,8 +118,10 @@ class Migration(migrations.Migration):
                 ),
                 ("color_codes", models.CharField(max_length=8)),
                 ("name", models.CharField(max_length=50, unique=True)),
-                ("created", models.DateTimeField(default=django.utils.timezone.now)),
-                ("modified", models.DateTimeField(default=django.utils.timezone.now)),
+                ("created", models.DateTimeField(
+                    default=django.utils.timezone.now)),
+                ("modified", models.DateTimeField(
+                    default=django.utils.timezone.now)),
             ],
         ),
         migrations.CreateModel(
@@ -129,8 +138,10 @@ class Migration(migrations.Migration):
                     ),
                 ),
                 ("amount", models.IntegerField(default=0)),
-                ("created", models.DateTimeField(default=django.utils.timezone.now)),
-                ("modified", models.DateTimeField(default=django.utils.timezone.now)),
+                ("created", models.DateTimeField(
+                    default=django.utils.timezone.now)),
+                ("modified", models.DateTimeField(
+                    default=django.utils.timezone.now)),
             ],
         ),
         migrations.CreateModel(
@@ -148,8 +159,10 @@ class Migration(migrations.Migration):
                 ),
                 ("color_codes", models.CharField(max_length=8)),
                 ("name", models.CharField(max_length=50, unique=True)),
-                ("created", models.DateTimeField(default=django.utils.timezone.now)),
-                ("modified", models.DateTimeField(default=django.utils.timezone.now)),
+                ("created", models.DateTimeField(
+                    default=django.utils.timezone.now)),
+                ("modified", models.DateTimeField(
+                    default=django.utils.timezone.now)),
             ],
         ),
     ]

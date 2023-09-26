@@ -44,8 +44,10 @@ urlpatterns = [
         name="schema-swagger-ui",
     ),
     path("seasons", SeasonsList.as_view(), name="season-create-index"),
-    path("seasons/<uuid:pk>/", SeasonsDetail.as_view(), name="season-get-patch-delete"),
-    path("seasons/names", SeasonsNamesList.as_view(), name="season-names-create-index"),
+    path("seasons/<uuid:pk>/", SeasonsDetail.as_view(),
+         name="season-get-patch-delete"),
+    path("seasons/names", SeasonsNamesList.as_view(),
+         name="season-names-create-index"),
     path(
         "seasons/names/<uuid:pk>/",
         SeasonNamesDetail.as_view(),
@@ -84,7 +86,8 @@ urlpatterns = [
         name="contract-statuses-get-patch-delete",
     ),
     path("bales", BalesList.as_view(), name="bales-create-index"),
-    path("bales/<uuid:pk>/", BalesDetail.as_view(), name="bales-get-patch-delete"),
+    path("bales/<uuid:pk>/", BalesDetail.as_view(),
+         name="bales-get-patch-delete"),
     path(
         "bales/qaulity", BalesQaulityList.as_view(), name="bale-qualities-create-index"
     ),
@@ -98,7 +101,8 @@ urlpatterns = [
         "comment/<uuid:pk>/", CommentsDetail.as_view(), name="comments-get-patch-delete"
     ),
     path("farmers", FarmerList.as_view(), name="farmers-create-index"),
-    path("farmers/<uuid:pk>/", FarmerDetail.as_view(), name="farmers-get-patch-delete"),
+    path("farmers/<uuid:pk>/", FarmerDetail.as_view(),
+         name="farmers-get-patch-delete"),
     path(
         "farmers/status",
         FarmerStatusList.as_view(),
@@ -121,7 +125,8 @@ urlpatterns = [
         SuppliesDetail.as_view(),
         name="supplies-get-patch-delete",
     ),
-    path("supplies/type", SuppliesTypeList.as_view(), name="supply-types-create-index"),
+    path("supplies/type", SuppliesTypeList.as_view(),
+         name="supply-types-create-index"),
     path(
         "supplies/type/<uuid:pk>/",
         SuppliesTypeDetail.as_view(),

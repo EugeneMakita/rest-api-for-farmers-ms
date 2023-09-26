@@ -1,10 +1,14 @@
 import base64
+import logging
 import os
 
 from django.conf import settings
 from django.core.files.base import ContentFile
 from django.utils.crypto import get_random_string
 from PIL import Image
+
+logging.basicConfig(level=logging.DEBUG)
+logger = logging.getLogger(__name__)
 
 
 class ImageProcessor:
@@ -22,7 +26,7 @@ class ImageProcessor:
         return format_str.split("/")[-1], imgstr
 
     @staticmethod
-    def store_file(base64_data: str) -> tuple:
+    def store_file(request, base64_data: str) -> tuple:
         """Store image
 
         Args:
@@ -40,16 +44,23 @@ class ImageProcessor:
 
         file_data = ContentFile(base64.b64decode(imgstr), name="temp." + ext)
         image = Image.open(file_data)
+
         os.makedirs(settings.MEDIA_ROOT, exist_ok=True)
+
         image_sizes = {"large": 1200, "medium": 600, "small": 300}
         data = {}
         for name, height in image_sizes.items():
             resized_image = ImageProcessor.resize_proportional(image, height)
-            file_name = os.path.join(
-                settings.MEDIA_ROOT, f"media_{name}_{get_random_string(16)}.{ext}"
-            )
+            base_file_name = f"media_{name}_{get_random_string(16)}.{ext}"
+            file_name = os.path.join(settings.MEDIA_ROOT, base_file_name)
+
             resized_image.save(file_name)
-            data[name] = file_name
+            relative_url = settings.MEDIA_URL + base_file_name
+            absolute_url = request.build_absolute_uri(relative_url)
+
+            data[name] = absolute_url
+
+        logger.debug(f"okay so lets debug this {data}")
 
         return data
 

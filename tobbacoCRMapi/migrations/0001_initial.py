@@ -29,7 +29,8 @@ class Migration(migrations.Migration):
                 ),
                 (
                     "uuid",
-                    models.UUIDField(default=uuid.uuid4, editable=False, unique=True),
+                    models.UUIDField(default=uuid.uuid4,
+                                     editable=False, unique=True),
                 ),
                 ("weight", models.FloatField()),
                 ("price_per_kilogram", models.FloatField()),
@@ -75,7 +76,8 @@ class Migration(migrations.Migration):
                 ),
                 (
                     "uuid",
-                    models.UUIDField(default=uuid.uuid4, editable=False, unique=True),
+                    models.UUIDField(default=uuid.uuid4,
+                                     editable=False, unique=True),
                 ),
             ],
         ),
@@ -93,7 +95,8 @@ class Migration(migrations.Migration):
                 ),
                 (
                     "uuid",
-                    models.UUIDField(default=uuid.uuid4, editable=False, unique=True),
+                    models.UUIDField(default=uuid.uuid4,
+                                     editable=False, unique=True),
                 ),
                 ("start_date", models.DateField()),
                 ("end_date", models.DateField()),

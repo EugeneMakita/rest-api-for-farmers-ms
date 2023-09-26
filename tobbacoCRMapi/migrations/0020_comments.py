@@ -30,8 +30,10 @@ class Migration(migrations.Migration):
                 ),
                 ("is_deleted", models.BooleanField(default=False)),
                 ("content", models.TextField()),
-                ("created", models.DateTimeField(default=django.utils.timezone.now)),
-                ("modified", models.DateTimeField(default=django.utils.timezone.now)),
+                ("created", models.DateTimeField(
+                    default=django.utils.timezone.now)),
+                ("modified", models.DateTimeField(
+                    default=django.utils.timezone.now)),
             ],
         ),
     ]
