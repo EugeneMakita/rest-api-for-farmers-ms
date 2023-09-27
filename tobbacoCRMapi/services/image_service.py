@@ -92,5 +92,12 @@ class ImageService(FilesProcessService):
         return image
 
     @staticmethod
-    def detete_file() -> bool:
-        pass
+    def delete_file(image) -> None:
+        os.remove(ImageService.get_full_path(image.large))
+        os.remove(ImageService.get_full_path(image.small))
+        os.remove(ImageService.get_full_path(image.medium))
+
+    @staticmethod
+    def get_full_path(base_file: str) -> str:
+        base_file_name = base_file.split("/")[-1]
+        return os.path.join(settings.MEDIA_ROOT, base_file_name)

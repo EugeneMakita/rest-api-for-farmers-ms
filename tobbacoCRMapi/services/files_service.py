@@ -47,5 +47,7 @@ class FileService(FilesProcessService):
             f.write(base64.b64decode(base64_content))
 
     @staticmethod
-    def detete_file() -> bool:
-        pass
+    def delete_file(image) -> None:
+        base_file_name = image.path.split("/")[-1]
+        file_name = os.path.join(settings.MEDIA_ROOT, base_file_name)
+        os.remove(file_name)

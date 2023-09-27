@@ -56,5 +56,5 @@ class FilesProcessService(ABC):
         pass
 
     @abstractmethod
-    def delete_file():
+    def delete_file(file_path: str) -> None:
         pass
