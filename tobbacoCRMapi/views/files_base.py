@@ -1,3 +1,4 @@
+from django.db import models
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -7,25 +8,25 @@ from .base import BaseListView
 
 
 class FilesBaseDetailView(APIView):
-    model = None
+    model: models.Model = None
     serializer_class = None
 
     def get_object(self, pk):
         return self.model.objects.get(pk=pk)
 
-    def get(self, pk: str) -> Response:
+    def get(self, request, pk: str) -> Response:
         instance = self.get_object(pk)
         serializer = self.serializer_class(instance)
         return Response(serializer.data)
 
-    def delete(self, pk: str) -> Response:
+    def delete(self, request, pk: str) -> Response:
         instance = self.get_object(pk)
         instance.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 
 class FilesBaseListView(BaseListView):
-    model = None
+    model: models.Model = None
     serializer_class = None
     file_service_class: FilesProcessService = None
 

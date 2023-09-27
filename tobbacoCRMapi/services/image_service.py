@@ -2,18 +2,20 @@ import base64
 import os
 
 from django.conf import settings
-from django.core.exceptions import ValidationError
 from django.core.files.base import ContentFile
-from django.utils.crypto import get_random_string
 from PIL import Image
+from rest_framework.request import Request
 
 from ..helpers.file_helper import FileHelper
 from .files_process_service import FilesProcessService
 
 
 class ImageService(FilesProcessService):
+    FILE_EXTENSIONS = ["jpeg", "jpg", "png", "gif"]
+    IMAGE_SIZES = {"large": 1200, "medium": 600, "small": 300}
+
     @staticmethod
-    def store_file(request, base64_data: str) -> dict:
+    def store_file(request: Request, base64_data: str) -> dict:
         """Store image
 
         Args:
@@ -23,14 +25,14 @@ class ImageService(FilesProcessService):
             ValueError: if the type of file is not allowed such as video etc
 
         Returns:
-            tuple: this contains the url's of the small, medium and large resized images
+            dict: this contains the url's of the small, medium and large resized images
         """
         (ext, img_str) = FileHelper.get_file_string_and_extension(base64_data)
-        ImageService.validate_file_extentions(ext)
-        return ImageService.save_image_to_disk(request, ext, img_str)
+        ImageService.validate_file_extentions(ImageService, ext)
+        return ImageService.save_file_to_disk(request, ext, img_str)
 
     @staticmethod
-    def save_image_to_disk(request, ext: str, base64_content: str) -> dict:
+    def save_file_to_disk(request: Request, ext: str, base64_content: str) -> dict:
         """Saves file to disk
 
         Args:
@@ -40,10 +42,9 @@ class ImageService(FilesProcessService):
         file_data = ContentFile(base64.b64decode(
             base64_content), name="temp." + ext)
         os.makedirs(settings.MEDIA_ROOT, exist_ok=True)
-        image_sizes = {"large": 1200, "medium": 600, "small": 300}
         data = {}
         with Image.open(file_data) as image:
-            for name, height in image_sizes.items():
+            for name, height in ImageService.IMAGE_SIZES.items():
                 data[name] = ImageService.save_variation_of_image(
                     height, image, name, ext, request
                 )
@@ -52,7 +53,7 @@ class ImageService(FilesProcessService):
 
     @staticmethod
     def save_variation_of_image(
-        height: int, image, type: str, ext: str, request
+        height: int, image, type: str, ext: str, request: Request
     ) -> str:
         """Save a variation to disk and return url path
 
@@ -67,38 +68,10 @@ class ImageService(FilesProcessService):
             str: The url path of the saved file
         """
         resized_image = ImageService.resize_proportional(image, height)
-        base_file_name = f"media_{type}_{get_random_string(16)}.{ext}"
+        base_file_name = ImageService.create_file_name(type, ext)
         file_name = os.path.join(settings.MEDIA_ROOT, base_file_name)
-
         resized_image.save(file_name)
         return ImageService.get_absolute_url(request, base_file_name)
-
-    @staticmethod
-    def get_absolute_url(request, base_file_name) -> str:
-        """_summary_
-
-        Args:
-            request (_type_): _description_
-            base_file_name (_type_): _description_
-
-        Returns:
-            str: _description_
-        """
-        relative_url = settings.MEDIA_URL + base_file_name
-        return request.build_absolute_uri(relative_url)
-
-    @staticmethod
-    def validate_file_extentions(ext: str):
-        """This checks if the file uploaded is the correct one
-
-        Args:
-            ext (str): The extention of the uploded file
-
-        Raises:
-            ValueError: This is raised when the file uploaded is the wrong ext
-        """
-        if ext not in ["jpeg", "jpg", "png", "gif"]:
-            raise ValidationError("File should be a jpeg, png, jpg or a gif")
 
     @staticmethod
     def resize_proportional(image: Image.Image, base_height: int) -> Image.Image:

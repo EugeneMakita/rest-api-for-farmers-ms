@@ -1,3 +1,4 @@
+from django.db import models
 from rest_framework import status
 from rest_framework.request import Request
 from rest_framework.response import Response
@@ -5,13 +6,13 @@ from rest_framework.views import APIView
 
 
 class BaseDetailView(APIView):
-    model = None
+    model: models.Model = None
     serializer_class = None
 
     def get_object(self, pk):
         return self.model.objects.get(pk=pk)
 
-    def get(self, pk: str) -> Response:
+    def get(self, request: Request, pk: str) -> Response:
         instance = self.get_object(pk)
         serializer = self.serializer_class(instance)
         return Response(serializer.data)
@@ -25,14 +26,14 @@ class BaseDetailView(APIView):
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    def delete(self, pk: str) -> Response:
+    def delete(self, request: Request, pk: str) -> Response:
         instance = self.get_object(pk)
         instance.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 
 class BaseListView(APIView):
-    model = None
+    model: models.Model = None
     serializer_class = None
 
     def get(self, request: Request) -> Response:
