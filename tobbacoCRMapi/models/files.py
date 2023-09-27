@@ -13,7 +13,5 @@ class Files(models.Model):
     modified = models.DateTimeField(default=timezone.now)
 
     def delete(self, *args, **kwargs):
-        self.refresh_from_db()
-
         FileService.delete_file(self)
         super(Files, self).delete(*args, **kwargs)
